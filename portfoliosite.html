@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liam O'Doherty — Community, Technology & Impact</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-cream: #f5f3ef;
+            --bg-card: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #4a4a4a;
+            --text-muted: #7a7a7a;
+            --accent: #1a1a1a;
+            --border: #d4d0c8;
+            --border-dark: #1a1a1a;
+            --tag-bg: transparent;
+            --highlight: #fff9c4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-weight: 300;
+            font-size: 15px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--bg-cream);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'IBM Plex Mono', monospace;
+            font-weight: 500;
+            font-size: 0.95rem;
+            text-decoration: none;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-logo-icon {
+            width: 24px;
+            height: 24px;
+            border: 1.5px solid var(--text-primary);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.85rem;
+            text-decoration: none;
+            color: var(--text-muted);
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--text-primary);
+        }
+
+        /* Main container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Section spacing */
+        section {
+            padding: 4rem 0;
+        }
+
+        /* Hero */
+        .hero {
+            padding-top: 8rem;
+            padding-bottom: 3rem;
+        }
+
+        .hero-intro {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .ascii-marker {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .hero-text {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            line-height: 1.7;
+        }
+
+        /* Skill tags */
+        .skills-section {
+            margin: 2rem 0;
+        }
+
+        .skills-intro {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-left: 1.75rem;
+        }
+
+        .skill-tag {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.8rem;
+            padding: 0.4rem 0.75rem;
+            border: 1px solid var(--border-dark);
+            background: var(--tag-bg);
+            color: var(--text-primary);
+        }
+
+        /* Domain tags */
+        .domain-section {
+            margin: 2rem 0;
+        }
+
+        .domain-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-left: 1.75rem;
+        }
+
+        .domain-tag {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.8rem;
+            padding: 0.4rem 0.75rem;
+            border: 1px solid var(--border);
+            background: var(--tag-bg);
+            color: var(--text-secondary);
+        }
+
+        /* Divider */
+        .divider {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--border);
+            letter-spacing: -1px;
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 3rem 0;
+            user-select: none;
+        }
+
+        /* Section headers */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .section-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--text-primary);
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .section-title {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .section-intro {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-description {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            max-width: 500px;
+        }
+
+        /* Selected Work grid */
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+        }
+
+        @media (max-width: 640px) {
+            .work-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .work-card {
+            position: relative;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            background: linear-gradient(135deg, #2a2a3e 0%, #1a1a2e 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .work-card-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.85;
+        }
+
+        .work-card-content {
+            position: relative;
+            z-index: 1;
+            padding: 1rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+        }
+
+        .work-card-title {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #fff;
+            line-height: 1.4;
+        }
+
+        .work-card a {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+
+        /* Placeholder work cards with gradients */
+        .work-card.placeholder-1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .work-card.placeholder-2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .work-card.placeholder-3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .work-card.placeholder-4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+        .work-card.placeholder-5 { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+        .work-card.placeholder-6 { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+        .work-card.placeholder-7 { background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%); }
+        .work-card.placeholder-8 { background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%); }
+
+        /* Ideas section */
+        .ideas-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+        }
+
+        @media (max-width: 640px) {
+            .ideas-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .idea-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .idea-card-image {
+            aspect-ratio: 16/10;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            position: relative;
+        }
+
+        .idea-card-title {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 1rem;
+            background: var(--text-primary);
+            color: var(--bg-cream);
+        }
+
+        /* Info/Timeline section */
+        .info-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .resume-btn {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.8rem;
+            padding: 0.5rem 1rem;
+            background: var(--text-primary);
+            color: var(--bg-cream);
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .timeline {
+            position: relative;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 80px 1fr auto;
+            gap: 1.5rem;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+
+        .timeline-date {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            padding-top: 0.25rem;
+        }
+
+        .timeline-icon {
+            width: 32px;
+            height: 32px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .timeline-icon svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--text-primary);
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .timeline-content h3 {
+            font-size: 0.95rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .timeline-content p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .timeline-certs {
+            margin-top: 0.75rem;
+        }
+
+        .timeline-cert {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            background: var(--highlight);
+            padding: 0.25rem 0.5rem;
+            display: inline-block;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-org {
+            text-align: right;
+        }
+
+        .org-logo {
+            height: 28px;
+            opacity: 0.8;
+        }
+
+        .org-logo-text {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            white-space: nowrap;
+        }
+
+        /* Awards section */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        @media (max-width: 640px) {
+            .awards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .award-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 1rem;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+        }
+
+        .award-icon {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
+        .award-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--text-primary);
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .award-content h4 {
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .award-content p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* Contact section */
+        .contact-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .contact-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .contact-text h3 {
+            font-size: 1rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .contact-text p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .contact-link {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.8rem;
+            padding: 0.5rem 1rem;
+            background: var(--text-primary);
+            color: var(--bg-cream);
+            text-decoration: none;
+        }
+
+        .contact-link:hover {
+            opacity: 0.9;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .contact-form select,
+        .contact-form input,
+        .contact-form textarea {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 0.9rem;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            color: var(--text-primary);
+        }
+
+        .contact-form textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.85rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--text-primary);
+            color: var(--bg-cream);
+            border: none;
+            cursor: pointer;
+            align-self: flex-start;
+        }
+
+        /* Network diagram placeholder */
+        .network-diagram {
+            width: 100%;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            margin-bottom: 2rem;
+        }
+
+        .network-diagram svg {
+            width: 80%;
+            height: 80%;
+            stroke: var(--text-muted);
+            fill: none;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        footer p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 0.75rem 1rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+
+            .timeline-date {
+                order: -1;
+            }
+
+            .timeline-org {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#" class="nav-logo">
+            <span class="nav-logo-icon">LO</span>
+            Liam O'Doherty
+        </a>
+        <div class="nav-links">
+            <a href="#work" class="active">Work</a>
+            <a href="#ideas">Ideas</a>
+            <a href="#info">Info</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Hero -->
+        <section class="hero" id="work">
+            <div class="hero-intro">
+                <span class="ascii-marker">▒</span>
+                <p class="hero-text">
+                    I build bridges between human communities and digital infrastructure. Over the past 15 years, my work has evolved from scaling global NGO networks to millions of users, to architecting decentralized trust ecosystems. I make invisible systems visible so communities can act with agency.
+                </p>
+            </div>
+
+            <div class="skills-section">
+                <div class="skills-intro">
+                    <span class="ascii-marker">░</span>
+                    <span class="section-description">I drive execution across the following areas:</span>
+                </div>
+                <div class="skills-grid">
+                    <span class="skill-tag">Product Management (PMP)</span>
+                    <span class="skill-tag">Ecosystem & Community Leadership</span>
+                    <span class="skill-tag">Mobile App Delivery</span>
+                    <span class="skill-tag">Systems Architecture</span>
+                    <span class="skill-tag">Partnership Development</span>
+                </div>
+            </div>
+
+            <div class="domain-section">
+                <div class="skills-intro">
+                    <span class="ascii-marker">▒</span>
+                    <span class="section-description">Core domain expertise:</span>
+                </div>
+                <div class="domain-tags">
+                    <span class="domain-tag">Web3 & Solana Ecosystems</span>
+                    <span class="domain-tag">Digital Communities</span>
+                    <span class="domain-tag">Indigenous Education</span>
+                    <span class="domain-tag">Accessibility</span>
+                    <span class="domain-tag">Impact Measurement</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</div>
+
+        <!-- Selected Work -->
+        <section>
+            <div class="section-header">
+                <span class="section-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                </span>
+                <span class="section-title">Selected Work</span>
+            </div>
+
+            <div class="section-intro">
+                <span class="ascii-marker">▒</span>
+                <p class="section-description">
+                    A selection of projects spanning mobile apps, blockchain ecosystems, and scaled digital platforms. Each represents a different facet of making complex systems accessible.
+                </p>
+            </div>
+
+            <div class="work-grid">
+                <div class="work-card placeholder-4">
+                    <div class="work-card-content">
+                        <p class="work-card-title">Chads NFT — Built a 1,200+ holder Web3 community and mobile ecosystem on Solana</p>
+                    </div>
+                    <a href="https://chads.wtf" target="_blank" aria-label="Chads NFT"></a>
+                </div>
+
+                <div class="work-card placeholder-3">
+                    <div class="work-card-content">
+                        <p class="work-card-title">TIGweb.org — Grew a global youth digital community from 255K to 2.2M members</p>
+                    </div>
+                    <a href="https://tigweb.org" target="_blank" aria-label="TIGweb"></a>
+                </div>
+
+                <div class="work-card placeholder-1">
+                    <div class="work-card-content">
+                        <p class="work-card-title">Connected North — Scaled digital education infrastructure to 150 remote Indigenous communities</p>
+                    </div>
+                    <a href="https://connectednorth.org" target="_blank" aria-label="Connected North"></a>
+                </div>
+
+                <div class="work-card placeholder-6">
+                    <div class="work-card-content">
+                        <p class="work-card-title">Commit2Act — Mobile platform tracking 67,000 environmental actions</p>
+                    </div>
+                    <a href="https://commit2act.org" target="_blank" aria-label="Commit2Act"></a>
+                </div>
+
+                <div class="work-card placeholder-2">
+                    <div class="work-card-content">
+                        <p class="work-card-title">Unlocking Culture — National program improving ASL/LSQ sign language instruction</p>
+                    </div>
+                    <a href="https://unlockingculture.ca" target="_blank" aria-label="Unlocking Culture"></a>
+                </div>
+
+                <div class="work-card placeholder-7">
+                    <div class="work-card-content">
+                        <p class="work-card-title">Djibouti Job Platform — Digital workforce matching for 10,000+ job seekers (USAID)</p>
+                    </div>
+                    <a href="#" aria-label="Djibouti Job Platform"></a>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</div>
+
+        <!-- Research & Architecture -->
+        <section id="ideas">
+            <div class="section-header">
+                <span class="section-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 18h6M10 22h4M12 2v1M12 6a4 4 0 0 0-4 4c0 2 1 3.5 2 4.5V16h4v-1.5c1-1 2-2.5 2-4.5a4 4 0 0 0-4-4z"/></svg>
+                </span>
+                <span class="section-title">Research & Architecture</span>
+            </div>
+
+            <div class="section-intro">
+                <span class="ascii-marker">▒</span>
+                <p class="section-description">
+                    Current technical focus and perspectives on decentralized coordination and trust infrastructure.
+                </p>
+            </div>
+
+            <div class="ideas-grid">
+                <div class="idea-card">
+                    <div class="idea-card-image" style="background: linear-gradient(135deg, #2b5876 0%, #4e4376 100%);"></div>
+                    <div class="idea-card-title">Decentralized coordination patterns for distributed networks</div>
+                </div>
+
+                <div class="idea-card">
+                    <div class="idea-card-image" style="background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);"></div>
+                    <div class="idea-card-title">Blockchain as truth escrow for consumer protection</div>
+                </div>
+
+                <div class="idea-card">
+                    <div class="idea-card-image" style="background: linear-gradient(135deg, #141e30 0%, #243b55 100%);"></div>
+                    <div class="idea-card-title">Trust infrastructure for autonomous agent ecosystems</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</div>
+
+        <!-- Info and History -->
+        <section id="info">
+            <div class="info-header">
+                <div class="section-header" style="margin-bottom: 0;">
+                    <span class="section-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                    </span>
+                    <span class="section-title">Info and History</span>
+                </div>
+                <a href="#" class="resume-btn">Resume/CV</a>
+            </div>
+
+            <div class="section-intro">
+                <span class="ascii-marker">▒</span>
+                <p class="section-description">
+                    A concise timeline mapping my evolution from NGO ecosystem building to decentralized trust architecture.
+                </p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        Oct 2007<br>
+                        [Current]
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <h3>Building AVOID.NET — Trust infrastructure for decentralized ecosystems.</h3>
+                        <p>Originally launched in 2007, currently architecting its Web3 evolution. Using economic cryptography to build censorship-resistant consumer protection that makes hidden scam signals visible.</p>
+                        <div class="timeline-certs">
+                            <span class="timeline-cert">Solana Colosseum Hackathon Participant</span>
+                        </div>
+                    </div>
+                    <div class="timeline-org">
+                        <span class="org-logo-text">Avoid.net</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        Jan 2023
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg>
+                        </div>
+                        <h3>Co-founded Chads NFT — Scaled a Solana Web3 ecosystem and mobile community.</h3>
+                        <p>Coordinated community launch, mint, and ongoing engagement. Grew network to 1,200 holders, 8,500 Twitter followers, and 2,700 Discord members. Taught blockchain curriculum at Assiniboine Community College and Brique par Brique.</p>
+                    </div>
+                    <div class="timeline-org">
+                        <span class="org-logo-text">Chads.wtf</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        Dec 2008<br>
+                        Jun 2024
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <h3>A Decade of Global Community Leadership — TakingITGlobal.</h3>
+                        <p>Progressed from Community Partnerships Coordinator to Director of Digital Youth Engagement. Spearheaded platform scaling from 255K to 2.2M members. Directed mobile app delivery (Commit2Act) and managed cross-sectoral projects with Cisco, Adobe, USAID, and UN agencies. Supported scaling Connected North from 9 to 150 schools.</p>
+                        <div class="timeline-certs">
+                            <span class="timeline-cert">PMP Certification, PMI, 2016</span>
+                            <span class="timeline-cert">Six Sigma Black Belt, 2020</span>
+                        </div>
+                    </div>
+                    <div class="timeline-org">
+                        <span class="org-logo-text">TakingITGlobal</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        2008<br>
+                        2014
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c6 3 12 0 12 0v-5"/></svg>
+                        </div>
+                        <h3>Studied Semiotics and Communication Theory at the University of Toronto.</h3>
+                        <p>The study of signs, symbols, and meaning-making. This foundation informs my approach to translating between different domains and making invisible systems visible.</p>
+                        <div class="timeline-certs">
+                            <span class="timeline-cert">BA - Semiotics & Communication Theory</span>
+                            <span class="timeline-cert">UX Design, BrainStation, 2017</span>
+                        </div>
+                    </div>
+                    <div class="timeline-org">
+                        <span class="org-logo-text">University of Toronto</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Awards -->
+            <div style="margin-top: 3rem;">
+                <div class="section-header">
+                    <span class="section-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+                    </span>
+                    <span class="section-title">Recognition</span>
+                </div>
+
+                <div class="awards-grid">
+                    <div class="award-item">
+                        <div class="award-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+                        </div>
+                        <div class="award-content">
+                            <h4>UN Alliance of Civilizations Intercultural Fellowship</h4>
+                            <p>2015</p>
+                        </div>
+                    </div>
+
+                    <div class="award-item">
+                        <div class="award-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+                        </div>
+                        <div class="award-content">
+                            <h4>Corporate Knights Top 30 Under 30 Sustainability Leaders</h4>
+                            <p>2015</p>
+                        </div>
+                    </div>
+
+                    <div class="award-item">
+                        <div class="award-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+                        </div>
+                        <div class="award-content">
+                            <h4>BMW & UN Intercultural Innovation Award</h4>
+                            <p>2013 — TakingITGlobal</p>
+                        </div>
+                    </div>
+
+                    <div class="award-item">
+                        <div class="award-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+                        </div>
+                        <div class="award-content">
+                            <h4>Canadian Improv Games National Champion</h4>
+                            <p>2003</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</div>
+
+        <!-- Contact -->
+        <section id="contact">
+            <div class="section-header">
+                <span class="section-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </span>
+                <span class="section-title">Contact</span>
+            </div>
+
+            <div class="section-intro">
+                <span class="ascii-marker">▒</span>
+                <p class="section-description">
+                    Have a burning question?<br>
+                    Want to explore a project, or just talk shop?
+                </p>
+            </div>
+
+            <div class="contact-section">
+                <div class="contact-text">
+                    <p>Connect with me on any of the channels below, or get in touch via email.</p>
+                    <div class="contact-links">
+                        <a href="https://linkedin.com/in/liamjod" target="_blank" class="contact-link">LinkedIn</a>
+                        <a href="https://twitter.com/liamjod" target="_blank" class="contact-link">Twitter</a>
+                        <a href="mailto:liamjod@gmail.com" class="contact-link">Email</a>
+                    </div>
+
+
+                </div>
+
+                <div class="contact-form">
+                    <select>
+                        <option>Reason for contact</option>
+                        <option>Let's grab a coffee</option>
+                        <option>Let's work together</option>
+                        <option>Speaking opportunity</option>
+                        <option>Something else...</option>
+                    </select>
+                    <input type="text" placeholder="Name">
+                    <input type="email" placeholder="Email">
+                    <textarea placeholder="Message"></textarea>
+                    <button type="submit">Send Message</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Liam O'Doherty · Toronto, Canada</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Update active nav on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
